@@ -1,0 +1,46 @@
+@ git init: para inicializar un repositorio. Se debe parar en la carpeta en la cual se quiere indicar es el directorio raíz del repositorio
+
+@ ls -al : muestra hasta los archivos ocultos en el directorio
+
+@ pwd : muestra el directorio actual en consola.
+
+@ git status: para ver el estado del proyecto.
+@ git add <filename> : añadir cambios para subir
+@ git rm <filename> : para sacar el cambio a subir
+
+@ git rm -- cache <filename> : para sacar el cambio a subir del cache
+cache significa que está en memoria RAM, aún no está en la base de dato, o sea, se enucentra en un almecenamiento temporal. Se usa por seguridad por si por error eliminamos un cambio.
+
+@ git commit: para enviar los cambios al repositorio. Lo correcto es siempre dejar un mensaje cada que se hace un commit, para conocer mejor la historia de los cambios.
+
+@ git commit -m "Mensaje para subir, control de versión."
+
+$ git config: para ver todas las configuraciones de git.
+
+$ git config --list: Para poder ver la configuración por defecto de git, y los parámetros faltantes
+
+$ git config --list --show-origin: dónde se guardan las configuraciones de git.
+
+$ git config --global user.name "Crimus Kronos": para configurar el nombre de usuario.
+# Con un solo guión se usan las abreviaciones de los comandos, por ejemplo -a, -l. Se usa -- cuando se van a usar los nombres completos de los comandos. global hace referencia a que se va a cambiar un parámetro global.
+
+$ git config --global user.email "correo@correo.com": para configurar el correo
+
+$ git add . : para agregar todos los archivos en el directorio actual.
+
+$ git log <filename>: para ver la historia de cambios del archivo.
+$ git show <filename>: muestra los cambios del archivo.
+# HEAD -> main : indica que estás en la versión más reciente de la rama main 
+#Si por algun motivo se abre la herramienta de mensajes de commit, la forma de salirse del editor es haciendo: Esc + shift + z + z. El editor de texto que usa es VIM.
+
+Para ver las diferencias entre dos versiones de un archivo se hace
+$ git diff <commit_number1> <commit_number2>. 
+# <commit_number1> es el código de commit que arroja el git log <file_name>. Por ejemplo, commit 96fb7279fe9e129beabfbfd3bad5059f4d450043.
+# El orden de <commit_number1> es importante. La forma correcta de hacerlo es usando $ ... <commit_number_old> <commit_number_new>
+
+Para volver a versiones anteriores se hace: 
+1$ git reset <commit_number1> --hard : todo vuelve a la versión anterior
+2$ git reset <commit_number1> --soft : todo vuelve a la versión anterior, lo que esté en staggin sigue en stagging. Es peligroso este comando, restaura todo a la versión seleccionada, generando pérdidas.
+
+# Staggin es la memoria temporal donde se almacenan los archivos que se agregan con git add, que posteriormente se suben al repositorio main al hacer el commit.
+
